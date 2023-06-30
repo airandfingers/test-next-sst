@@ -1,0 +1,149 @@
+{
+  "version": "32.0.0",
+  "artifacts": {
+    "aaron-test-next-sst-Site.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "aaron-test-next-sst-Site.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "aaron-test-next-sst-Site": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://082014291504/us-east-1",
+      "properties": {
+        "templateFile": "aaron-test-next-sst-Site.template.json",
+        "tags": {
+          "sst:app": "test-next-sst",
+          "sst:stage": "aaron"
+        },
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::082014291504:role/cdk-hnb659fds-deploy-role-082014291504-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::082014291504:role/cdk-hnb659fds-cfn-exec-role-082014291504-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-082014291504-us-east-1/047596e42846fd5e24575464cb12199c7646f33b80d0f8b4cccb6af8b9f59362.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "aaron-test-next-sst-Site.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::082014291504:role/cdk-hnb659fds-lookup-role-082014291504-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "aaron-test-next-sst-Site.assets"
+      ],
+      "metadata": {
+        "/aaron-test-next-sst-Site": [
+          {
+            "type": "aws:cdk:stack-tags",
+            "data": [
+              {
+                "Key": "sst:app",
+                "Value": "test-next-sst"
+              },
+              {
+                "Key": "sst:stage",
+                "Value": "aaron"
+              }
+            ]
+          }
+        ],
+        "/aaron-test-next-sst-Site/CustomResourceHandler/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomResourceHandlerServiceRole41AEC181"
+          }
+        ],
+        "/aaron-test-next-sst-Site/CustomResourceHandler/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomResourceHandlerE8FB56BA"
+          }
+        ],
+        "/aaron-test-next-sst-Site/site/ServerFunctionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteServerFunctionRole1F8F4FAC"
+          }
+        ],
+        "/aaron-test-next-sst-Site/site/ServerFunction/AssetReplacerPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteServerFunctionAssetReplacerPolicy304BF125"
+          }
+        ],
+        "/aaron-test-next-sst-Site/site/ServerFunction/AssetReplacer/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteServerFunctionAssetReplacer9A11D516"
+          }
+        ],
+        "/aaron-test-next-sst-Site/site/ServerFunction/ServerFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteServerFunction6DFA6F1B"
+          }
+        ],
+        "/aaron-test-next-sst-Site/site/ServerFunction/ServerFunction/LogRetention/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteServerFunctionLogRetention7123678D"
+          }
+        ],
+        "/aaron-test-next-sst-Site/site/Parameter_url/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteParameterurl3D1716BC"
+          }
+        ],
+        "/aaron-test-next-sst-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB"
+          }
+        ],
+        "/aaron-test-next-sst-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB"
+          }
+        ],
+        "/aaron-test-next-sst-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A"
+          }
+        ],
+        "/aaron-test-next-sst-Site/SSTStackOutputSSTMetadata": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SSTMetadata"
+          }
+        ],
+        "/aaron-test-next-sst-Site/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/aaron-test-next-sst-Site/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "aaron-test-next-sst-Site"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}

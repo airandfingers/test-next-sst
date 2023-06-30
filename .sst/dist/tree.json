@@ -1,0 +1,633 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "aaron-test-next-sst-Site": {
+        "id": "aaron-test-next-sst-Site",
+        "path": "aaron-test-next-sst-Site",
+        "children": {
+          "CustomResourceHandler": {
+            "id": "CustomResourceHandler",
+            "path": "aaron-test-next-sst-Site/CustomResourceHandler",
+            "children": {
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "aaron-test-next-sst-Site/CustomResourceHandler/ServiceRole",
+                "children": {
+                  "ImportServiceRole": {
+                    "id": "ImportServiceRole",
+                    "path": "aaron-test-next-sst-Site/CustomResourceHandler/ServiceRole/ImportServiceRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.84.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "aaron-test-next-sst-Site/CustomResourceHandler/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ],
+                        "tags": [
+                          {
+                            "key": "sst:app",
+                            "value": "test-next-sst"
+                          },
+                          {
+                            "key": "sst:stage",
+                            "value": "aaron"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.84.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.84.0"
+                }
+              },
+              "Code": {
+                "id": "Code",
+                "path": "aaron-test-next-sst-Site/CustomResourceHandler/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "aaron-test-next-sst-Site/CustomResourceHandler/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.84.0"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "aaron-test-next-sst-Site/CustomResourceHandler/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.84.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.84.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "aaron-test-next-sst-Site/CustomResourceHandler/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": "cdk-hnb659fds-assets-082014291504-us-east-1",
+                      "s3Key": "0757990f69bacec03efd2dcef5895b9a8702d2ee6e43ebf0bd0ff3514e45dca4.zip"
+                    },
+                    "role": {
+                      "Fn::GetAtt": [
+                        "CustomResourceHandlerServiceRole41AEC181",
+                        "Arn"
+                      ]
+                    },
+                    "handler": "index.handler",
+                    "memorySize": 1024,
+                    "runtime": "nodejs16.x",
+                    "tags": [
+                      {
+                        "key": "sst:app",
+                        "value": "test-next-sst"
+                      },
+                      {
+                        "key": "sst:stage",
+                        "value": "aaron"
+                      }
+                    ],
+                    "timeout": 900
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                  "version": "2.84.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_lambda.Function",
+              "version": "2.84.0"
+            }
+          },
+          "site": {
+            "id": "site",
+            "path": "aaron-test-next-sst-Site/site",
+            "children": {
+              "ServerFunctionRole": {
+                "id": "ServerFunctionRole",
+                "path": "aaron-test-next-sst-Site/site/ServerFunctionRole",
+                "children": {
+                  "ImportServerFunctionRole": {
+                    "id": "ImportServerFunctionRole",
+                    "path": "aaron-test-next-sst-Site/site/ServerFunctionRole/ImportServerFunctionRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.84.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "aaron-test-next-sst-Site/site/ServerFunctionRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "AWS": {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      "arn:",
+                                      {
+                                        "Ref": "AWS::Partition"
+                                      },
+                                      ":iam::082014291504:root"
+                                    ]
+                                  ]
+                                }
+                              }
+                            },
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "maxSessionDuration": 43200,
+                        "tags": [
+                          {
+                            "key": "sst:app",
+                            "value": "test-next-sst"
+                          },
+                          {
+                            "key": "sst:stage",
+                            "value": "aaron"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.84.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.84.0"
+                }
+              },
+              "ServerFunction": {
+                "id": "ServerFunction",
+                "path": "aaron-test-next-sst-Site/site/ServerFunction",
+                "children": {
+                  "AssetReplacerPolicy": {
+                    "id": "AssetReplacerPolicy",
+                    "path": "aaron-test-next-sst-Site/site/ServerFunction/AssetReplacerPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "aaron-test-next-sst-Site/site/ServerFunction/AssetReplacerPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": [
+                                    "s3:GetObject",
+                                    "s3:PutObject"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Resource": {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":s3:::placeholder/*"
+                                      ]
+                                    ]
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "siteServerFunctionAssetReplacerPolicy304BF125",
+                            "roles": [
+                              {
+                                "Ref": "CustomResourceHandlerServiceRole41AEC181"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "version": "2.84.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "version": "2.84.0"
+                    }
+                  },
+                  "AssetReplacer": {
+                    "id": "AssetReplacer",
+                    "path": "aaron-test-next-sst-Site/site/ServerFunction/AssetReplacer",
+                    "children": {
+                      "Default": {
+                        "id": "Default",
+                        "path": "aaron-test-next-sst-Site/site/ServerFunction/AssetReplacer/Default",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CfnResource",
+                          "version": "2.84.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CustomResource",
+                      "version": "2.84.0"
+                    }
+                  },
+                  "IServerFunctionBucket": {
+                    "id": "IServerFunctionBucket",
+                    "path": "aaron-test-next-sst-Site/site/ServerFunction/IServerFunctionBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.84.0"
+                    }
+                  },
+                  "ServerFunction": {
+                    "id": "ServerFunction",
+                    "path": "aaron-test-next-sst-Site/site/ServerFunction/ServerFunction",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "aaron-test-next-sst-Site/site/ServerFunction/ServerFunction/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                          "aws:cdk:cloudformation:props": {
+                            "code": {
+                              "s3Bucket": "placeholder",
+                              "s3Key": "placeholder"
+                            },
+                            "role": {
+                              "Fn::GetAtt": [
+                                "siteServerFunctionRole1F8F4FAC",
+                                "Arn"
+                              ]
+                            },
+                            "architectures": [
+                              "arm64"
+                            ],
+                            "description": "Server handler placeholder",
+                            "environment": {
+                              "variables": {
+                                "SST_APP": "test-next-sst",
+                                "SST_STAGE": "aaron",
+                                "SST_SSM_PREFIX": "/sst/test-next-sst/aaron/"
+                              }
+                            },
+                            "handler": "index.handler",
+                            "memorySize": 1024,
+                            "runtime": "nodejs18.x",
+                            "tags": [
+                              {
+                                "key": "sst:app",
+                                "value": "test-next-sst"
+                              },
+                              {
+                                "key": "sst:stage",
+                                "value": "aaron"
+                              }
+                            ],
+                            "timeout": 10
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                          "version": "2.84.0"
+                        }
+                      },
+                      "LogRetention": {
+                        "id": "LogRetention",
+                        "path": "aaron-test-next-sst-Site/site/ServerFunction/ServerFunction/LogRetention",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "aaron-test-next-sst-Site/site/ServerFunction/ServerFunction/LogRetention/Resource",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.CfnResource",
+                              "version": "2.84.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_logs.LogRetention",
+                          "version": "2.84.0"
+                        }
+                      },
+                      "LogGroup": {
+                        "id": "LogGroup",
+                        "path": "aaron-test-next-sst-Site/site/ServerFunction/ServerFunction/LogGroup",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.84.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.Function",
+                      "version": "2.84.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "constructs.Construct",
+                  "version": "10.1.156"
+                }
+              },
+              "Parameter_url": {
+                "id": "Parameter_url",
+                "path": "aaron-test-next-sst-Site/site/Parameter_url",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "aaron-test-next-sst-Site/site/Parameter_url/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::SSM::Parameter",
+                      "aws:cdk:cloudformation:props": {
+                        "type": "String",
+                        "value": "localhost",
+                        "name": "/sst/test-next-sst/aaron/NextjsSite/site/url",
+                        "tags": {
+                          "sst:app": "test-next-sst",
+                          "sst:stage": "aaron"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_ssm.CfnParameter",
+                      "version": "2.84.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_ssm.StringParameter",
+                  "version": "2.84.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.1.156"
+            }
+          },
+          "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a": {
+            "id": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a",
+            "path": "aaron-test-next-sst-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a",
+            "children": {
+              "Code": {
+                "id": "Code",
+                "path": "aaron-test-next-sst-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "aaron-test-next-sst-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.84.0"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "aaron-test-next-sst-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.84.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.84.0"
+                }
+              },
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "aaron-test-next-sst-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole",
+                "children": {
+                  "ImportServiceRole": {
+                    "id": "ImportServiceRole",
+                    "path": "aaron-test-next-sst-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/ImportServiceRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.84.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "aaron-test-next-sst-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ],
+                        "tags": [
+                          {
+                            "key": "sst:app",
+                            "value": "test-next-sst"
+                          },
+                          {
+                            "key": "sst:stage",
+                            "value": "aaron"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.84.0"
+                    }
+                  },
+                  "DefaultPolicy": {
+                    "id": "DefaultPolicy",
+                    "path": "aaron-test-next-sst-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "aaron-test-next-sst-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": [
+                                    "logs:PutRetentionPolicy",
+                                    "logs:DeleteRetentionPolicy"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Resource": "*"
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB",
+                            "roles": [
+                              {
+                                "Ref": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "version": "2.84.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "version": "2.84.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.84.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "aaron-test-next-sst-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Resource",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.84.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.1.156"
+            }
+          },
+          "SSTStackOutputSSTMetadata": {
+            "id": "SSTStackOutputSSTMetadata",
+            "path": "aaron-test-next-sst-Site/SSTStackOutputSSTMetadata",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.84.0"
+            }
+          },
+          "BootstrapVersion": {
+            "id": "BootstrapVersion",
+            "path": "aaron-test-next-sst-Site/BootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnParameter",
+              "version": "2.84.0"
+            }
+          },
+          "CheckBootstrapVersion": {
+            "id": "CheckBootstrapVersion",
+            "path": "aaron-test-next-sst-Site/CheckBootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnRule",
+              "version": "2.84.0"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.84.0"
+        }
+      },
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "constructs.Construct",
+          "version": "10.1.156"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "aws-cdk-lib.App",
+      "version": "2.84.0"
+    }
+  }
+}
